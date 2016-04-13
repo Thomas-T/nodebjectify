@@ -3,7 +3,7 @@
 const Q = require('q');
 const chai = require('chai');
 const expect = chai.expect;
-const Cache = require('../lib/cache')();
+const Cache = require('../lib/index')(require('../config.json').LOCAL).Cache;
 
 describe('Cache', function() {
 

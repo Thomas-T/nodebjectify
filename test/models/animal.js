@@ -1,6 +1,6 @@
 'use strict';
 
-const Model = require('../../lib/model');
+const Model = require('../../lib/index')(require('../../config.json').LOCAL).Model;
 
 class Animal extends Model {
 

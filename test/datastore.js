@@ -3,7 +3,7 @@
 const Q = require('q');
 const chai = require('chai');
 const expect = chai.expect;
-const Datastore = require('../lib/datastore')();
+const Datastore = require('../lib/index')(require('../config.json').LOCAL).Datastore;
 
 describe('Datastore', function() {
 
