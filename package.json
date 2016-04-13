@@ -1,0 +1,20 @@
+{
+  "name": "nodebjectify",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "author": "Thomas Tiercelin <t.tiercelin@gmail.com> (https://www.allocab.com)",
+  "license": "ISC",
+  "dependencies": {
+    "gcloud": "^0.30.3",
+    "memcached": "^2.2.1",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
