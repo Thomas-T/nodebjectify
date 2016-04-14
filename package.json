@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "node_modules/.bin/mocha",
-     "coverage": "istanbul cover _mocha -- -R spec"
+    "coverage": "istanbul cover _mocha -- -R spec"
   },
   "author": "Thomas Tiercelin <t.tiercelin@gmail.com> (https://www.allocab.com)",
   "license": "MIT",
