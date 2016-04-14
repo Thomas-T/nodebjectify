@@ -1,5 +1,4 @@
 'use strict';
-
 const Q = require('q');
 const chai = require('chai');
 const expect = chai.expect;
