@@ -28,6 +28,16 @@ describe('Datastore', function() {
       expect(query).to.exist;
       expect(query.kinds.length).to.equal(1);
       expect(query.kinds[0]).to.equal('Thing');
+      expect(query.namespace).to.equal('local-dev');
+      expect(query.orders.length).to.equal(0);
+      expect(query.groupByVal.length).to.equal(0);
+      expect(query.filters.length).to.equal(0);
+      expect(query.selectVal.length).to.equal(0);
+      expect(query.autoPaginateVal).to.equal(true);
+      expect(query.startVal).to.not.exist;
+      expect(query.endVal).to.not.exist;
+      expect(query.limitVal).to.equal(-1);
+      expect(query.offsetVal).to.equal(-1);
     });
   });
 
