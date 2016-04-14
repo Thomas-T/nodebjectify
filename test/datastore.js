@@ -43,7 +43,7 @@ describe('Datastore', function() {
 
   describe('#runQuery', function () {
 
-    this.timeout(2500);
+    this.timeout(5000);
 
     it('run a query with kind NoData returns no entities', function (done) {
       Datastore.runQuery(Datastore.createQuery('NoData')).then(function(data){
@@ -71,7 +71,7 @@ describe('Datastore', function() {
         yield Datastore.save(TempKind,{ amount:10, name:'to-get' });
         yield Datastore.save(TempKind,{ amount:10, name:'to-get' });
         console.log('DATA inserted');
-        done();
+        setTimeout(done, 2000);
       });
     });
 
