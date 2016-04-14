@@ -21,6 +21,56 @@ models.forEach(function(clz){
 
   describe(kind, function() {
 
+    describe('#createQuery', function(){
+
+      it('create query for model return good query', function(){
+
+        let query = ModelPatron.query();
+        expect(query).to.exist;
+
+        expect(query.kinds.length).to.equal(1);
+        expect(query.kinds[0]).to.equal(kind);
+        expect(query.namespace).to.equal('local-dev');
+        expect(query.orders.length).to.equal(0);
+        expect(query.groupByVal.length).to.equal(0);
+        expect(query.filters.length).to.equal(0);
+        expect(query.selectVal.length).to.equal(0);
+        expect(query.autoPaginateVal).to.equal(true);
+        expect(query.startVal).to.not.exist;
+        expect(query.endVal).to.not.exist;
+        expect(query.limitVal).to.equal(-1);
+        expect(query.offsetVal).to.equal(-1);
+
+      });
+
+    });
+
+
+    before(function(done) {
+
+      Q.spawn(function* () {
+        yield new ModelPatron({ amount:10, name:'to-get' }).save();
+        yield new ModelPatron({ amount:10, name:'to-get' }).save();
+        yield new ModelPatron({ amount:10, name:'to-get' }).save();
+        yield new ModelPatron({ amount:10, name:'to-get' }).save();
+        done();
+      });
+
+    });
+
+    describe('#runQuery', function(done){
+      ModelPatron.runQuery(ModelPatron.query()).then(function(data){
+        expect(data).to.exist;
+        expect(data.models).to.exist;
+        expect(data.models.length).to.be.at.least(4);
+        data.models.forEach(function(model){
+          expect(model.id).to.exist;
+        });
+      }).catch(function(err){
+        done(err);
+      });
+    });
+
 
     describe('#model lifecycle', function(){
 

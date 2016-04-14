@@ -9,7 +9,7 @@
     "datastore": {
       "projectId": "allocab-vm-test",
       "namespacePrefix": "local-dev",
-      "apiEndpoint": "localhost:8943"
+      "apiEndpoint": "localhost:8926"
     }
   }
 }
