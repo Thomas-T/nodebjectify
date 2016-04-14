@@ -16,6 +16,75 @@ describe('Datastore', function() {
 
   });
 
+  describe('#createQuery', function () {
+    it('create a query with no kind returns a query object with no kinds', function () {
+      let query = Datastore.createQuery();
+      expect(query).to.exist;
+      expect(query.kinds.length).to.equal(0);
+    });
+
+    it('create a query with on kind returns a query object with one kind', function () {
+      let query = Datastore.createQuery('Thing');
+      expect(query).to.exist;
+      expect(query.kinds.length).to.equal(1);
+      expect(query.kinds[0]).to.equal('Thing');
+    });
+  });
+
+  describe('#runQuery', function () {
+
+    this.timeout(2500);
+
+    it('run a query with kind NoData returns no entities', function (done) {
+      Datastore.runQuery(Datastore.createQuery('NoData')).then(function(data){
+        expect(data).to.exist;
+        expect(data.entities).to.exist;
+        expect(data.entities.length).to.equal(0);
+        setTimeout(done, 1000);
+      }).catch(function(err){
+        done(err);
+      });
+    });
+
+    const TempKind = 'Data'+new Date().getTime();
+
+    before(function(done) {
+      Q.spawn(function* () {
+        yield Datastore.save(TempKind,{ amount:10, name:'to-get' });
+        yield Datastore.save(TempKind,{ amount:10, name:'to-get' });
+        yield Datastore.save(TempKind,{ amount:10, name:'to-get' });
+        yield Datastore.save(TempKind,{ amount:10, name:'to-get' });
+        yield Datastore.save(TempKind,{ amount:10, name:'to-get' });
+        yield Datastore.save(TempKind,{ amount:10, name:'to-get' });
+        yield Datastore.save(TempKind,{ amount:10, name:'to-get' });
+        yield Datastore.save(TempKind,{ amount:10, name:'to-get' });
+        yield Datastore.save(TempKind,{ amount:10, name:'to-get' });
+        yield Datastore.save(TempKind,{ amount:10, name:'to-get' });
+        console.log('DATA inserted');
+        done();
+      });
+    });
+
+    it('run a query with kind Data returns 10 entities', function (done) {
+      Datastore.runQuery(Datastore.createQuery(TempKind)).then(function(data){
+        expect(data).to.exist;
+        expect(data.entities).to.exist;
+        expect(data.entities.length).to.equal(10);
+
+        let first  = data.entities[0];
+        expect(first).to.exist;
+        expect(first.id).to.exist;
+        expect(first.amount).to.equals(10);
+        expect(first.name).to.equals('to-get');
+
+        done();
+      }).catch(function(err){
+        done(err);
+      });
+    });
+
+  });
+
   describe('#del', function () {
     it('deleting an non existing key returns the kind and id', function (done) {
       Datastore.del('Thing', 778).then(function(key){

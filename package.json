@@ -10,7 +10,7 @@
   "author": "Thomas Tiercelin <t.tiercelin@gmail.com> (https://www.allocab.com)",
   "license": "MIT",
   "dependencies": {
-    "gcloud": "^0.30.3",
+    "gcloud": "^0.29.0",
     "memcached": "^2.2.1",
     "q": "^1.4.1"
   },
