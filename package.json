@@ -1,19 +1,21 @@
 {
   "name": "nodebjectify",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Abstraction layer for using Google Appengine datastore & memcache on NodeJs",
   "main": "lib/index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha"
+    "test": "node_modules/.bin/mocha",
+    "coverage": "istanbul cover _mocha -- -R spec"
   },
   "author": "Thomas Tiercelin <t.tiercelin@gmail.com> (https://www.allocab.com)",
   "license": "MIT",
   "dependencies": {
-    "gcloud": "^0.30.3",
+    "gcloud": "^0.29.0",
     "memcached": "^2.2.1",
     "q": "^1.4.1"
   },
   "devDependencies": {
+    "blanket": "^1.1.9",
     "chai": "^3.5.0",
     "mocha": "^2.4.5"
   }
