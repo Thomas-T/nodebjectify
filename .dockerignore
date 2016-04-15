@@ -1,0 +1,5 @@
+node_modules*
+keys*
+coverage*
+.git*
+.DS_Store*

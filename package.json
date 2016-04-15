@@ -1,6 +1,6 @@
 {
   "name": "nodebjectify",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Abstraction layer for using Google Appengine datastore & memcache on NodeJs",
   "main": "lib/index.js",
   "scripts": {
@@ -15,7 +15,12 @@
     "url": "https://github.com/Thomas-T/nodebjectify/issues"
   },
   "keywords": [
-    "node", "nodejs", "google", "appengine", "datastore", "cache"
+    "node",
+    "nodejs",
+    "google",
+    "appengine",
+    "datastore",
+    "cache"
   ],
   "author": "Thomas Tiercelin <t.tiercelin@gmail.com> (https://www.allocab.com)",
   "license": "MIT",
@@ -27,6 +32,7 @@
   "devDependencies": {
     "blanket": "^1.1.9",
     "chai": "^3.5.0",
+    "istanbul": "^0.4.3",
     "mocha": "^2.4.5"
   }
 }

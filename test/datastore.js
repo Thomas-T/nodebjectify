@@ -6,6 +6,8 @@ const Datastore = require('../lib/index')(require('../config.json').LOCAL).Datas
 
 describe('Datastore', function() {
 
+  this.timeout(5000);
+
   before(function(done) {
 
     Q.spawn(function* () {
