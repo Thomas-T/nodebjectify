@@ -55,7 +55,7 @@ E.G in your code :
     class SuperHero extends NBJ.Model {
 
     }
-    module.exports = NBJ;
+    module.exports = SuperHero;
 
 You can also have now access to the `Datastore` and `Cache` layers that Nodebjectify uses :
 
