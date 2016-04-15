@@ -21,10 +21,23 @@ Nobjectify doesn't care about data validation, it is only a layer of abstraction
 
     npm i --save nodebjectify
 
-# Development Environment & Config
+# Development Environment
+
+You need 2 things to develop your application, a Memcached server and a Datastore.
+## Memcached
+
+Go to the [Appengine Doc page](https://cloud.google.com/appengine/docs/flexible/nodejs/caching-application-data) and follow the instructions for your OS at the section *"Testing memcached locally"*
+
+## Datastore
+You can use the Appengine Datastore directly, but it will cost you and will not be very efficient for development.
+You'd rather use the [Datastore Emulator](https://cloud.google.com/datastore/docs/tools/datastore-emulator).
+
+# Production Environment
 soon
-# Production Environment & Config
+
+# Configuration
 soon
+
 # The Model concept
 
 Nodebjectify provide you a `Model`class that implements the basic methods to access and manipulate your data, provide your own classes that extends `Model` and let's magic happens.
