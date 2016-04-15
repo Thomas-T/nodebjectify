@@ -32,6 +32,7 @@ Nodebjectify provide you a `Model`class that implements the basic methods to acc
 ## Define your class
 
 In a module, define your class `Animal` that extends `Model` :
+
     class Animal extends Model {
       // here your methods definitions
     }
