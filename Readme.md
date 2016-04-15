@@ -19,15 +19,61 @@ Nobjectify doesn't care about data validation, it is only a layer of abstraction
 
 # Installation
 
-  npm i --save nodebjectify
+    npm i --save nodebjectify
 
 # Development Environment & Config
 soon
 # Production Environment & Config
 soon
-# the Model concept
+# The Model concept
+
+Nodebjectify provide you a `Model`class that implements the basic methods to access and manipulate your data, provide your own classes that extends `Model` and let's magic happens.
+
+## Define your class
+
+In a module, define your class `Animal` that extends `Model`
+    class Animal extends Model {
+
+    }
+    module.exports = Animal;
+
+Tadaaa !
+
+## Use your class (a short tut)
+
+Then you can use your new class `Animal` with the basics methods inherited from `Model` :
+
+    new Animal({name: 'Flipper', race: 'dolphin', age: 45}).save().then(function(flipper){
+      console.log('here comes flipper', flipper);
+      console.log(flipper.id); /// 12345
+    });
+
+In the datastore, you can see an new `Entity`of the Kind `Animal` with 3 attributes `name`,`race`,`age`, in the memcache a new entry has been set with the same data.
+
+You can retrieve your created `Animal` with its ID :
+
+    Animal.get(12345).then(function(flipper){
+        console.log('flipper is back', flipper);
+    });
+
+Nobjectify first look in the memcache to retrieve it fastly, if it's not present, it will load it from the Datastore and store it to Cache for later use.
+
+# Reference
+
+## Static methods
+
+### get(id)
 soon
-# static methods
+### del(id)
 soon
-# object methods
+### createQuery()
+soon
+### runQuery(query)
+soon
+
+## Object methods
+
+### save()
+soon
+### del()
 soon
