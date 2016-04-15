@@ -7,6 +7,16 @@
     "test": "node_modules/.bin/mocha",
     "coverage": "istanbul cover _mocha -- -R spec"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Thomas-T/nodebjectify"
+  },
+  "bugs": {
+    "url": "https://github.com/Thomas-T/nodebjectify/issues"
+  },
+  "keywords": [
+    "node", "nodejs", "google", "appengine", "datastore", "cache"
+  ],
   "author": "Thomas Tiercelin <t.tiercelin@gmail.com> (https://www.allocab.com)",
   "license": "MIT",
   "dependencies": {

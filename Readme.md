@@ -14,6 +14,7 @@ A short example :
 The hipster is instancied with the data provided (no schema, we keep JS flexibility), then saved to the Datastore and the Cache for later use.
 
 *what Nobjectify doesn't do*
+
 Nobjectify doesn't care about data validation, it is only a layer of abstraction for storing and accessing your data from the Datastore and the Cache.
 
 
