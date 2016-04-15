@@ -19,7 +19,7 @@ Nobjectify doesn't care about data validation, it is only a layer of abstraction
 
 *TO DO*
 
-* ~~ documentation of all basics methods accessible with `Model` ~~
+* ~~documentation of all basics methods accessible with `Model`~~
 * prods credentials configuration for the Datastore
 * better management for namespaces (default and on operation-only change)
 * implementation of all functionnalities for Nodebjectify.Datastore and Nodebjectify.Cache (eg: batch request)
