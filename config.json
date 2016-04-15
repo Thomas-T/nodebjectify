@@ -7,7 +7,7 @@
       "defaultCacheLifetimeInSeconds": 60
     },
     "datastore": {
-      "projectId": "allocab-vm-test",
+      "projectId": "p0",
       "namespacePrefix": "local-dev",
       "apiEndpoint": "localhost:8540"
     }

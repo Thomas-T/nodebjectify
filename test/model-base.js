@@ -3,8 +3,8 @@ const Q = require('q');
 const chai = require('chai');
 const expect = chai.expect;
 const Model = require('../lib/index')(require('../config.json').LOCAL).Model;
-const Story = require('./models/Story');
-const Animal = require('./models/Animal');
+const Story = require('./models/story');
+const Animal = require('./models/animal');
 
 let models = [
   { schema: Model, kind: 'Model' },
