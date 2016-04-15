@@ -21,6 +21,8 @@ Nobjectify doesn't care about data validation, it is only a layer of abstraction
 
 * prods credentials configuration for the Datastore
 * better management for namespaces (default and on operation-only change)
+* implementation of all functionnalities for Nodebjectify.Datastore and Nodebjectify.Cache (eg: batch request)
+* documentation of all basics methods accessible with `Model`
 
 # Installation
 
@@ -41,10 +43,26 @@ You'd rather use the [Datastore Emulator](https://cloud.google.com/datastore/doc
 You need to connect Nodebjectify to your Datastore and Memcached servers.
 For this, you can create a module like this :
 
+    // nodebjectify-instance.js or whatever your want
     const Nodebjectify = require('nodebjectify')(myConf);
     module.exports = Nodebjectify;
 
 You can then require your module every where in your code and keep just your configuration at one place.
+E.G in your code :
+
+    const NBJ = require('./nodebjectify-instance');
+    // you can now access the Model class
+    class SuperHero extends NBJ.Model {
+
+    }
+    module.exports = NBJ;
+
+You can also have now access to the `Datastore` and `Cache` layers that Nodebjectify uses :
+
+    NBJ.Datastore;
+    NBJ.Cache;   
+
+Note that thiese layers are not direct access to the `Datastore` and the `Memcached`, as they do some treatment to manage things like namespace or data transformations.
 
 The config file is a JSON or Javacript object like the following :
 
@@ -74,7 +92,8 @@ Nodebjectify provide you a `Model`class that implements the basic methods to acc
 
 In a module, define your class `Animal` that extends `Model` :
 
-    class Animal extends Model {
+    const NBJ = require('./nodebjectify-instance');
+    class Animal extends NBJ.Model {
       // here your methods definitions
     }
     module.exports = Animal;
