@@ -31,7 +31,7 @@ Nodebjectify provide you a `Model`class that implements the basic methods to acc
 
 ## Define your class
 
-In a module, define your class `Animal` that extends `Model`
+In a module, define your class `Animal` that extends `Model` :
     class Animal extends Model {
 
     }
@@ -39,7 +39,7 @@ In a module, define your class `Animal` that extends `Model`
 
 Tadaaa !
 
-## Use your class (a short tut)
+## Use your class
 
 Then you can use your new class `Animal` with the basics methods inherited from `Model` :
 
