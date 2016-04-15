@@ -19,10 +19,10 @@ Nobjectify doesn't care about data validation, it is only a layer of abstraction
 
 *TO DO*
 
+* ~~documentation of all basics methods accessible with `Model`~~
 * prods credentials configuration for the Datastore
 * better management for namespaces (default and on operation-only change)
 * implementation of all functionnalities for Nodebjectify.Datastore and Nodebjectify.Cache (eg: batch request)
-* documentation of all basics methods accessible with `Model`
 
 # Installation
 
@@ -55,7 +55,7 @@ E.G in your code :
     class SuperHero extends NBJ.Model {
 
     }
-    module.exports = NBJ;
+    module.exports = SuperHero;
 
 You can also have now access to the `Datastore` and `Cache` layers that Nodebjectify uses :
 
@@ -124,17 +124,50 @@ Nobjectify first look in the memcache to retrieve it fastly, if it's not present
 ## Static methods
 
 ### get(id)
-soon
+Retrieve the object according to the className and the ID, if none returns null
+eg :
+
+    Animal.get(456789).then(function(animal){
+      if(!animal) {
+        return console.log('nothing stored for this ID');
+      }
+      console.log('animal retrieved', animal);
+    });
+
 ### del(id)
-soon
+Delete from Datastore and Cache the object for the className and the ID, returns an object with the kind and the ID (even if the object doesn't exists)
+eg :
+
+    Animal.del(456789).then(function(key){
+      console.log(key); // {id: 456789, kind: 'Animal' }
+    });
+
+
 ### createQuery()
-soon
+Create a query on the kind defined by the class name, it's the underlying query from the glcoud library, for more informations, see the [Google Documentation](https://googlecloudplatform.github.io/gcloud-node/#/docs/v0.29.0/datastore/query)
+eg :
+
+    let query = Animal.createQuery().filter('fur', true).order('size');
+
 ### runQuery(query)
-soon
+Run a query created with `createQuery()` and return an object with an attribute `models` (array of Model) and the nextQuery (for pagination)
+eg :
+
+    let query = Animal.createQuery().filter('fur', true).order('size');
+    Animal.runQuery(query).then(function(result){
+      console.log(result); // { models: [ ], nextQuery:  }
+    });
+
 
 ## Object methods
 
 ### save()
-soon
+Save the model to the Cache and the Datastore
+eg :
+
+    new Animal({firstName: 'King', lastName: 'Kong', fur: true, size: 10000}).then(function(kingKong){
+      console.log('here come the king', kingKong);
+    });
+
 ### del()
-soon
+Remove the object from the datastore and the Cache (same as the statis method)
