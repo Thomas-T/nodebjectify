@@ -17,6 +17,10 @@ The hipster is instancied with the data provided (no schema, we keep JS flexibil
 
 Nobjectify doesn't care about data validation, it is only a layer of abstraction for storing and accessing your data from the Datastore and the Cache.
 
+*TO DO*
+
+* prods credentials configuration for the Datastore
+* better management for namespaces (default and on operation-only change)
 
 # Installation
 
@@ -33,10 +37,33 @@ Go to the [Appengine Doc page](https://cloud.google.com/appengine/docs/flexible/
 You can use the Appengine Datastore directly, but it will cost you and will not be very efficient for development.
 You'd rather use the [Datastore Emulator](https://cloud.google.com/datastore/docs/tools/datastore-emulator).
 
-# Production Environment
-soon
+## Configuration
+You need to connect Nodebjectify to your Datastore and Memcached servers.
+For this, you can create a module like this :
 
-# Configuration
+    const Nodebjectify = require('nodebjectify')(myConf);
+    module.exports = Nodebjectify;
+
+You can then require your module every where in your code and keep just your configuration at one place.
+
+The config file is a JSON or Javacript object like the following :
+
+    {
+      "cache": { // The cache configuration
+        "address": "localhost", // the address of the memcached server, 'localhost' if none provided
+        "port": 11211, // the port of the memcached server, 11211 if none provided
+        "namespacePrefix": "nodebjectify", // the namespace to prefix your cache entries, 'nodebjectify' if non provided
+        "defaultCacheLifetimeInSeconds": 60 // the default lifetime value in second to expires your cache entries, 60 if non provided
+      },
+      "datastore": {
+        "projectId": "allocab-vm-test", // the ID of your GoogleAppengine projet, REQUIRED
+        "namespacePrefix": "local-dev", // the namespace used to store your entries in the Datastore
+        "apiEndpoint": "localhost:8926" // the address of your local Datastore Instance, if non provided, will target the real Appengine Datastore according to your projet ID
+      }
+    }    
+
+
+# Production Environment
 soon
 
 # The Model concept
