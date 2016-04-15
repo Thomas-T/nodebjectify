@@ -1,4 +1,6 @@
 **An abstraction layer for using Google Appengine Datastore & Memcache with NodeJs**
+[![Build Status](https://travis-ci.org/Thomas-T/nodebjectify.svg?branch=master)](https://travis-ci.org/Thomas-T/nodebjectify)
+
 
 Appengine is a great plaform for developping applications with (almost) infinite scaling.
 The new *Flexible Environment* (previously Managed VM) allow you to run NodeJs and many more langages.
