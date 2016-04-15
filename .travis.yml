@@ -8,9 +8,9 @@ services:
 
 before_install:
   - docker build -t ttiercelin/nodebjectify-node .
-  - docker run -d ttiercelin/appengine-node /bin/sh -c "cd /root/nodebjectify; npm i;"
+  - docker run -d ttiercelin/nodebjectify-node /bin/sh -c "cd /root/nodebjectify; npm i;"
   - docker ps -a
-  - docker run ttiercelin/appengine-node /bin/sh -c "cd /root/nodebjectify; npm run coverage"
+  - docker run ttiercelin/nodebjectify-node /bin/sh -c "cd /root/nodebjectify; npm run coverage"
 
 script:
   - npm run coverage
