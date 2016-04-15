@@ -1,6 +1,6 @@
 {
   "name": "nodebjectify",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Abstraction layer for using Google Appengine datastore & memcache on NodeJs",
   "main": "lib/index.js",
   "scripts": {
