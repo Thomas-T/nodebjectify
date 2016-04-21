@@ -2,7 +2,7 @@
 const Q = require('q');
 const chai = require('chai');
 const expect = chai.expect;
-const Datastore = require('../lib/index')(require('../config.json').LOCAL).Datastore;
+const Datastore = require('../lib/index')(require('../config.json').TRAVIS).Datastore;
 
 describe('Datastore', function() {
 
@@ -45,7 +45,7 @@ describe('Datastore', function() {
 
   describe('#runQuery', function () {
 
-    this.timeout(5000);
+    this.timeout(20000);
 
     it('run a query with kind NoData returns no entities', function (done) {
       Datastore.runQuery(Datastore.createQuery('NoData')).then(function(data){

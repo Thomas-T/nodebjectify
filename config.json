@@ -11,5 +11,18 @@
       "namespacePrefix": "local-dev",
       "apiEndpoint": "localhost:8540"
     }
+  },
+  "TRAVIS": {
+    "cache": {
+      "address": "52.196.118.233",
+      "port": 11211,
+      "namespacePrefix": "nodebjectify",
+      "defaultCacheLifetimeInSeconds": 60
+    },
+    "datastore": {
+      "projectId": "p0",
+      "namespacePrefix": "local-dev",
+      "apiEndpoint": "52.196.118.233:8490"
+    }
   }
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-const Model = require('../../lib/index')(require('../../config.json').LOCAL).Model;
+const Model = require('../../lib/index')(require('../../config.json').TRAVIS).Model;
 
 class Story extends Model {
 

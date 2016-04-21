@@ -2,7 +2,7 @@
 const Q = require('q');
 const chai = require('chai');
 const expect = chai.expect;
-const Cache = require('../lib/index')(require('../config.json').LOCAL).Cache;
+const Cache = require('../lib/index')(require('../config.json').TRAVIS).Cache;
 
 describe('Cache', function() {
 
@@ -117,7 +117,7 @@ describe('Cache', function() {
     it('cache returns a good object with default options', function () {
 
       expect(Cache).to.exist;
-      expect(Cache.address).to.equal('localhost');
+      expect(Cache.address).to.equal('52.196.118.233');
       expect(Cache.port).to.equal(11211);
       expect(Cache.defaultCacheLifetimeInSeconds).to.equal(60);
       expect(Cache.namespacePrefix).to.equal('nodebjectify');

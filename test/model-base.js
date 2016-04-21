@@ -2,7 +2,7 @@
 const Q = require('q');
 const chai = require('chai');
 const expect = chai.expect;
-const Model = require('../lib/index')(require('../config.json').LOCAL).Model;
+const Model = require('../lib/index')(require('../config.json').TRAVIS).Model;
 const Story = require('./models/story');
 const Animal = require('./models/animal');
 
@@ -17,9 +17,9 @@ models.forEach(function(clz){
   let ModelPatron = clz.schema;
   let kind = clz.kind;
 
-
-
   describe(kind, function() {
+
+    this.timeout(20000);
 
     describe('#createQuery', function(){
 
